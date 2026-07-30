@@ -1,35 +1,43 @@
-import { CalendarDays, MapPin, Search } from "lucide-react";
+import { useState, type FormEvent } from "react";
 import { Button } from "../../components/ui/Button";
-import { SearchInput } from "../../components/ui/SearchInput";
+import { ServiceSelect } from "./search/ServiceSelect";
+import { LocationSelect } from "./search/LocationSelect";
+import { DateSelect } from "./search/DateSelect";
 
 export function SearchBar() {
+  const [services, setServices] = useState<string[]>([]);
+  const [location, setLocation] = useState<string | null>(null);
+  const [date, setDate] = useState<Date | null>(null);
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
-    <div className="citea-ring-gradient rounded-[34px] p-[2px] shadow-[0_28px_65px_rgba(0,74,173,0.20)] transition duration-300 hover:shadow-[0_32px_75px_rgba(0,74,173,0.28)]">
+    <div className="relative">
+      <div
+        aria-hidden="true"
+        className="animate-citea-aura absolute -inset-3 -z-10 rounded-[36px] bg-[radial-gradient(closest-side,rgba(205,255,216,0.55),rgba(156,205,225,0.30),transparent)] blur-xl"
+      />
+
       <form
-        className="grid w-full overflow-hidden rounded-[32px] border border-white bg-white/95 p-2.5 backdrop-blur-md sm:grid-cols-2 lg:flex lg:items-center lg:rounded-full"
-        onSubmit={(event) => event.preventDefault()}
+        onSubmit={handleSubmit}
+        className="grid w-full gap-1 rounded-[24px] border border-white bg-white/95 p-1.5 shadow-[0_16px_36px_rgba(28,76,102,0.15)] backdrop-blur-md transition duration-300 hover:shadow-[0_20px_44px_rgba(28,76,102,0.19)] sm:grid-cols-2 lg:flex lg:items-center lg:gap-0 lg:rounded-full"
       >
-        <SearchInput
-          icon={<Search className="size-7" strokeWidth={1.8} />}
-          label="¿Qué servicio buscas?"
-          className="lg:flex-[1.35]"
-        />
-        <SearchInput
-          icon={<MapPin className="size-7" strokeWidth={1.8} />}
-          label="Tu ubicación"
-          className="lg:flex-1"
-          divider
-        />
-        <SearchInput
-          icon={<CalendarDays className="size-7" strokeWidth={1.8} />}
-          label="Elige una fecha"
-          className="lg:flex-1"
-          divider
-        />
+        <ServiceSelect selected={services} onChange={setServices} />
+
+        <div className="hidden h-7 w-px self-center bg-[#dbe4ec] lg:block" />
+
+        <LocationSelect selected={location} onChange={setLocation} />
+
+        <div className="hidden h-7 w-px self-center bg-[#dbe4ec] lg:block" />
+
+        <DateSelect selected={date} onChange={setDate} />
 
         <Button
           type="submit"
-          className="animate-citea-glow m-1 h-14 px-9 text-base transition-transform duration-300 hover:scale-[1.04] active:scale-[0.97] sm:col-span-2 lg:col-auto lg:ml-2 lg:h-16 lg:min-w-[142px]"
+          className="m-1 h-11 px-6 text-[14px] transition-transform duration-300 hover:scale-[1.03] active:scale-[0.97] sm:col-span-2 lg:col-auto lg:ml-2 lg:h-[52px] lg:min-w-[122px]"
         >
           Buscar
         </Button>
