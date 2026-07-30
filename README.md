@@ -65,5 +65,4 @@ citea_darsen/
 │   ├── index.css               # Estilos globales y configuración de variables Tailwind
 │   └── main.tsx                # Punto de entrada de la aplicación en React
 │
-├── tailwind.config.js          # Configuración del Design System (Colores corporativos)
 └── tsconfig.json               # Configuración del compilador de TypeScript
