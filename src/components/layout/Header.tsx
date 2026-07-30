@@ -6,7 +6,9 @@ const links = ["Inicio", "Servicios", "Profesionales", "Nosotros"];
 
 export function Header() {
   return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-white/80 bg-white/80 backdrop-blur-xl">
+    <header className="absolute inset-x-0 top-0 z-50 isolate">
+      <div aria-hidden="true" className="citea-header-mist animate-citea-mist" />
+
       <div className="mx-auto flex h-[68px] max-w-[1560px] items-center justify-between px-5 sm:px-6 lg:h-[80px] lg:px-8 xl:px-10">
         <a href="#inicio" aria-label="Citea - Inicio" className="shrink-0">
           <img src={logoCobalto} alt="Citea" className="h-auto w-[88px] sm:w-[98px] lg:w-[110px]" />

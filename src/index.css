@@ -76,3 +76,44 @@
 .animate-citea-glow { animation: citea-glow 3.2s ease-in-out infinite; }
 .animate-citea-aura { animation: citea-aura 5s ease-in-out infinite; }
 .animate-citea-pop { animation: citea-pop-in 0.16s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* --- Fusión Hero: niebla del header + entrada de foto + ripple de disponibilidad --- */
+
+@keyframes citea-mist-drift {
+  0%, 100% { transform: translateX(0) scale(1); opacity: 0.92; }
+  50%      { transform: translateX(2%) scale(1.015); opacity: 1; }
+}
+
+@keyframes citea-photo-in {
+  0%   { opacity: 0; transform: scale(1.05) translateX(2%); }
+  100% { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+/* Como el pulso de una gota de agua al caer: encaja con "reserva en minutos" */
+@keyframes citea-ripple {
+  0%   { box-shadow: 0 0 0 0 rgba(24, 184, 109, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(24, 184, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(24, 184, 109, 0); }
+}
+
+.animate-citea-mist { animation: citea-mist-drift 11s ease-in-out infinite; }
+.animate-citea-photo-in { animation: citea-photo-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-citea-ripple { animation: citea-ripple 2.6s ease-out infinite; }
+
+@layer components {
+  /* Niebla del Header (portada desde el CSS module viejo, ahora como utility) */
+  .citea-header-mist {
+    position: absolute;
+    inset: 0 0 -52px;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 34% 115% at 8% 0%, rgba(205, 255, 216, 0.72) 0%, rgba(231, 255, 238, 0.48) 45%, transparent 100%),
+      radial-gradient(ellipse 42% 125% at 36% 0%, rgba(156, 205, 225, 0.35) 0%, rgba(229, 244, 250, 0.28) 52%, transparent 100%),
+      linear-gradient(90deg, rgba(249, 255, 251, 0.82) 0%, rgba(255, 255, 255, 0.88) 49%, rgba(255, 255, 255, 0.96) 72%, rgba(255, 255, 255, 0.86) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.98) 55%, rgba(0, 0, 0, 0.56) 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.98) 55%, rgba(0, 0, 0, 0.56) 78%, transparent 100%);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+}

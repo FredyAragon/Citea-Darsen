@@ -1,6 +1,7 @@
 import { CalendarDays, Hand, Leaf, Sparkles } from "lucide-react";
 import type { CSSProperties } from "react";
-import heroBackground from "../../assets/Hero_Fondo.webp";
+import heroBackground from "../../assets/hero-fondo.webp";
+import heroPeople from "../../assets/hero-personas.webp"; // ajusta el nombre si difiere
 import { useRevealOnMount } from "../../hooks/useRevealOnMount";
 import { Header } from "../../components/layout/Header";
 import { Card } from "../../components/ui/Card";
@@ -55,7 +56,7 @@ function AvailabilityCard() {
         className="relative size-[58px] shrink-0 rounded-[16px] bg-cover bg-[position:72%_center]"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
-        <span className="absolute bottom-1 right-1 size-2.5 rounded-full border-2 border-white bg-[#14b86e]" />
+        <span className="absolute bottom-1 right-1 size-2.5 rounded-full border-2 border-white bg-[#14b86e] animate-citea-ripple" />
       </div>
 
       <div className="min-w-0 flex-1">
@@ -85,14 +86,39 @@ export function Hero() {
       id="inicio"
       className="relative isolate overflow-hidden rounded-b-[28px] bg-[#eefcf5] lg:h-[clamp(680px,calc(100svh-16px),840px)]"
     >
-      <div
+      {/* Fondo full-bleed */}
+      <img
+        src={heroBackground}
+        alt=""
         aria-hidden="true"
-        className="hero-background absolute inset-0 -z-30 bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
       />
+
+      {/* Foto de personas recortada con curva orgánica, sólo visible desde lg */}
+      <svg
+        className="animate-citea-photo-in absolute inset-y-0 right-0 -z-20 hidden h-full w-[64.2%] lg:block"
+        viewBox="0 0 1073 833"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <defs>
+          <clipPath id="citea-photo-curve">
+            <path d="M470 0H1073V833H0C165 748 246 678 282 585C315 500 292 412 292 325V221C292 82 348 0 470 0Z" />
+          </clipPath>
+        </defs>
+        <image
+          href={heroPeople}
+          width="1073"
+          height="833"
+          preserveAspectRatio="xMidYMid slice"
+          clipPath="url(#citea-photo-curve)"
+        />
+      </svg>
+
+      {/* Overlay de contraste sobre ambas imágenes */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(238,255,246,0.78)_0%,rgba(239,250,252,0.50)_38%,rgba(255,255,255,0.05)_66%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(238,255,246,0.78)_0%,rgba(239,250,252,0.50)_38%,rgba(255,255,255,0.05)_66%)]"
       />
 
       <LeafDecor className="left-[4%] top-[16%] -z-10" color="#cdffd8" size={46} style={{ animationDelay: "0s" }} />
