@@ -2,11 +2,13 @@ import type { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "ghost";
+  rounded?: "full" | "xl";
 };
 
 export function Button({
   className = "",
   variant = "primary",
+  rounded = "full",
   type = "button",
   ...props
 }: ButtonProps) {
@@ -17,10 +19,15 @@ export function Button({
       "bg-transparent text-[#12345b] hover:bg-citea-sky/15 focus-visible:outline-citea-cobalt",
   };
 
+  const roundedStyles = {
+    full: "rounded-full",
+    xl: "rounded-2xl",
+  };
+
   return (
     <button
       type={type}
-      className={`inline-flex items-center justify-center rounded-full font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center ${roundedStyles[rounded]} font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
       {...props}
     />
   );

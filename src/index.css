@@ -31,3 +31,46 @@
     }
   }
 }
+
+@keyframes citea-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--leaf-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-16px) rotate(var(--leaf-rot, 0deg));
+  }
+}
+
+@keyframes citea-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 74, 173, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 74, 173, 0.09);
+  }
+}
+
+@keyframes citea-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-citea-float {
+  animation: citea-float 6s ease-in-out infinite;
+}
+
+.animate-citea-glow {
+  animation: citea-glow 3.2s ease-in-out infinite;
+}
+
+.citea-ring-gradient {
+  background: linear-gradient(90deg, #cdffd8, #9ccde1, #004aad, #9ccde1, #cdffd8);
+  background-size: 200% 100%;
+  animation: citea-shimmer 8s linear infinite;
+}
