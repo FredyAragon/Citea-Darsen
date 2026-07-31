@@ -1,10 +1,10 @@
 import { CalendarDays, Hand, Leaf, Sparkles } from "lucide-react";
 import type { CSSProperties } from "react";
-import heroBackground from "../../assets/hero-fondo.webp";
-import heroPeople from "../../assets/hero-personas.webp"; // ajusta el nombre si difiere
-import { useRevealOnMount } from "../../hooks/useRevealOnMount";
-import { Header } from "../../components/layout/Header";
-import { Card } from "../../components/ui/Card";
+import heroBackground from "../../../assets/hero-fondo.webp";
+import heroPeople from "../../../assets/hero-personas.webp"; 
+import { useRevealOnMount } from "../../../hooks/useRevealOnMount";
+import { Header } from "../../../components/layout/Header";
+import { Card } from "../../../components/ui/Card";
 import { SearchBar } from "./SearchBar";
 
 const popularServices = [

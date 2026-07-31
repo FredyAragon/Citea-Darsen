@@ -1,6 +1,6 @@
 // src/modules/Trends/Trends.tsx
 import { Heart, Star, ChevronRight } from 'lucide-react';
-import type { Service } from '../../types/modules';
+import type { Service } from '../../../types/modules';
 
 const TRENDING_SERVICES: Service[] = [
   {

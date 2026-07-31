@@ -1,7 +1,7 @@
 // src/modules/Reviews/Reviews.tsx
 import { ChevronRight } from 'lucide-react';
 import ReviewCard from './ReviewCard';
-import type { Review } from '../../types/modules';
+import type { Review } from '../../../types/modules';
 
 const REVIEWS_DATA: Review[] = [
   {

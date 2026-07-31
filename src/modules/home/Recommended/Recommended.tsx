@@ -1,7 +1,7 @@
 // src/modules/Recommended/Recommended.tsx
 import { ChevronRight } from 'lucide-react';
 import ServiceCard from './ServiceCard';
-import type { Service } from '../../types/modules';
+import type { Service } from '../../../types/modules';
 
 // Mocks estéticos usando Unsplash
 const RECOMMENDED_CENTERS: Service[] = [

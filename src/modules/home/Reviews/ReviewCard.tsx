@@ -1,6 +1,6 @@
 // src/modules/Reviews/ReviewCard.tsx
 import { Star } from 'lucide-react';
-import type { Review } from '../../types/modules';
+import type { Review } from '../../../types/modules';
 
 interface ReviewCardProps {
   review: Review;

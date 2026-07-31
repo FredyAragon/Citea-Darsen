@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { CalendarDays } from "lucide-react";
-import { Calendar } from "../../../components/ui/Calendar";
-import { useClickOutside } from "../../../hooks/useClickOutside";
+import { Calendar } from "../../../../components/ui/Calendar";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
 
 type DateSelectProps = {
   selected: Date | null;

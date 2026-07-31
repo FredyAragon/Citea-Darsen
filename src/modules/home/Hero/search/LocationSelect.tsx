@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { MapPin, Check } from "lucide-react";
-import { arequipaDistricts, peruCities } from "../../../data/locations";
-import { useClickOutside } from "../../../hooks/useClickOutside";
+import { arequipaDistricts, peruCities } from "../../../../data/locations";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
 
 type LocationSelectProps = {
   selected: string | null;

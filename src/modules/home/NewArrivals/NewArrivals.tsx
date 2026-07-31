@@ -1,6 +1,6 @@
 // src/modules/NewArrivals/NewArrivals.tsx
 import { Heart, Star, ChevronRight } from 'lucide-react';
-import type { Service } from '../../types/modules';
+import type { Service } from '../../../types/modules';
 
 const NEW_ARRIVALS: Service[] = [
   {

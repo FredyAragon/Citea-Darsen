@@ -1,6 +1,6 @@
 // src/modules/Recommended/ServiceCard.tsx
 import { Heart, Star, MapPin, CheckCircle2 } from 'lucide-react';
-import type { Service } from '../../types/modules';
+import type { Service } from '../../../types/modules';
 
 interface ServiceCardProps {
   center: Service;

@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { Search, Check } from "lucide-react";
-import { serviceOptions } from "../../../data/services";
-import { useClickOutside } from "../../../hooks/useClickOutside";
+import { serviceOptions } from "../../../../data/services";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
 
 type ServiceSelectProps = {
   selected: string[];
